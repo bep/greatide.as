@@ -1,0 +1,38 @@
+{{ partial "header.html" . }}
+{{ $baseurl := .Site.BaseURL }}
+
+{{if .Params.cover}}
+	<header class="main-header tag-head" style="background-image: url({{ $baseurl }}{{.Params.cover}})">
+{{else if .Site.Params.cover}}
+	<header class="main-header tag-head" style="background-image: url({{ $baseurl }}{{.Site.Params.cover}})">
+{{else}}
+	<header class="main-header tag-head no-cover">
+{{end}}
+    <nav class="main-nav overlay clearfix">
+        {{ if .Site.Params.logo }}
+        <a class="blog-logo" href="{{.Site.BaseURL}}"><img src="{{.Site.BaseURL}}{{ .Site.Params.logo }}" alt="Home" /></a>
+        {{end}}
+        {{ partial "nav.html" . }}
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">{{.Title}}</h1>
+            <h2 class="page-description">
+                {{if .Params.description}}
+                    {{.Params.description}}
+                {{end}}
+            </h2>
+        </div>
+    </div>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+    <p class="lead">Sorry, we’ve misplaced that URL or it’s pointing to something that doesn’t exist. <a href="/">Head back home</a> to try
+        finding it again.</p>
+    </article>
+</main>
+
+
+
+{{ partial "footer.html" . }}

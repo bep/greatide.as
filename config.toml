@@ -1,0 +1,30 @@
+baseurl = "http://greatide.as/"
+languageCode = "en-gb"
+title = "Great Ideas"
+
+MetaDataFormat = "yaml"
+canonifyurls = true
+paginate = 5
+#DisqusShortname = "YOUR_SHORT_NAME_HERE"
+Copyright = "All rights reserved - 2015"
+
+PygmentsStyle = "trac"
+
+[params]
+  description = "Thoughts you never imagined"
+  cover = "img/bulb3.jpg"
+  comments = false
+  author = "Bjørn Erik Pedersen"
+  logo = "img/lightbulb_64.png"
+  authorwebsite = "http://bep.is"
+  googleAnalyticsUserID = "UA-52478213-5"
+
+
+
+[permalinks]
+  post = "/:slug/"
+
+[Taxonomies]
+     tag = "tags"
+     category = "categories"
+     series = "series"

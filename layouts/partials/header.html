@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="{{.Site.LanguageCode}}">
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="fb:app_id" content="111055509053223" />
+    <meta property="fb:admins" content="615673291"/>
+    <meta property="og:site_name" content="greatide.as" />
+    <meta property="og:locale" content="nn_NO" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:description" content="{{if .IsPage}}{{ .Summary }}{{else}}{{.Site.Params.description}}{{end}}" />
+    {{ with .Params.images }}{{ range first 6 . }}
+    <meta property="og:image" content="{{ absURL . }}" />
+    {{ end }}{{ end }}
+    {{ if .IsPage }}
+    <meta property="og:updated_time" content="{{ .Date }}"/>
+    {{ end }}
+    {{ with .Params.images }}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image:src" content="{{ absURL (index . 0) }}"/>
+    {{ else }}
+    <meta name="twitter:card" content="summary"/>
+    {{ end }}
+    <meta name="twitter:site" content="@greatide_as">
+    <meta name="twitter:url" content="{{ .Permalink }}">
+    <meta property="twitter:title" content="{{ .Title }}" />
+    <meta property="twitter:description" content="{{if .IsPage}}{{ .Summary }}{{else}}{{.Site.Params.description}}{{end}}" />
+
+    <title>
+    {{ if ne .URL "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}
+  </title>
+
+    <meta name="description" content="{{if .IsPage}}{{ .Summary }}{{else}}{{.Site.Params.description}}{{end}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/assets/js/gi.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/gi.css" />
+
+    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    
+    {{.Hugo.Generator}}
+
+    <link rel="canonical" href="{{.Site.BaseURL}}" />
+    {{ if not .Site.BuildDrafts }}
+    {{with  .Site.Params.googleAnalyticsUserID }}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '{{.}}', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    {{end}}
+    {{end}}
+</head>
+<body>
+
+
+<div class="site-wrapper">

@@ -1,0 +1,12 @@
+
+node_modules/
+/.awspublish-greatide.as
+nohup.out
+/static/assets/css
+/static/assets/js
+/dev
+/public
+/dist
+layouts/partials/footer.html
+layouts/partials/header.html
+.idea
